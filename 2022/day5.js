@@ -1,24 +1,5 @@
-// let a =
-// `
-// [B]             [B] [S]
-// [M]             [P] [L] [B] [J]
-// [D]     [R]     [V] [D] [Q] [D]
-// [T] [R] [Z]     [H] [H] [G] [C]
-// [P] [W] [J] [B] [J] [F] [J] [S]
-// [N] [S] [Z] [V] [M] [N] [Z] [F] [M]
-// [W] [Z] [H] [D] [H] [G] [Q] [S] [W]
-// [B] [L] [Q] [W] [S] [L] [J] [W] [Z]
-// 1   2   3   4   5   6   7   8   9`
 
-// [D]
-// [N] [C]
-// [Z] [M] [P]
-//  1   2   3
 const fs = require("fs");
-
-let egy = ["z", "n"];
-let ketto = ["m", "c", "d"];
-let harom = ["p"];
 
 const whichOne = {
   1: ["B", "W", "N", "P", "T", "D", "M", "B"],
@@ -31,18 +12,6 @@ const whichOne = {
   8: ["W", "S", "F", "S", "C", "D", "J"],
   9: ["Z", "W", "M"],
 };
-
-// const whichOne = {
-//   1: "one",
-//   2: "two",
-//   3: "three",
-//   4: "four",
-//   5: "five",
-//   6: "six",
-//   7: "seven",
-//   8: "eight",
-//   9: "nine",
-// };
 
 const whichOneTest = {
   1: ["z", "n"],
@@ -71,5 +40,16 @@ const findEndState = () => {
   });
 
   console.log(whichOne);
+
+//   let answer = []
+
+//   for (const key in whichOne) {
+//     console.log("whichOne[key]", whichOne[key]);
+//     console.log({key}, answer[key]);
+//     answer[key-1] = whichOne[key].pop()
+// }
+
+// console.log({answer});
+
 };
 findEndState();

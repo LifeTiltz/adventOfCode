@@ -1,5 +1,3 @@
-
-const { log } = require("console");
 const fs = require("fs");
 
 const whichOne = {
@@ -39,49 +37,48 @@ const findEndState = () => {
       whichOne[from].pop();
     }
   });
-  
-  // for (let i = 0; i < lines.length; i++) {
-  //   let line = lines[i]
 
-  //   let broken = line.split(" ");
-  //   const move = broken[1];
-  //   const from = broken[3];
-  //   const to = broken[5];
-
-  //   for (let j = 0; j < move; j++) {
-  //     let last = whichOne[from].at(-1);
-
-  //     if (i >= i) {
-  //       console.log("_____________");
-  //       console.log({move, from, to, last, i});
-  //       console.log(whichOne);
-  //       console.log("- - -");
-  //     }
-
-  //     whichOne[to].push(last);
-  //     whichOne[from].pop();
-
-  //     if (i >= i) {
-  //       console.log(whichOne);
-  //       console.log("___________");
-  //     }
-
-  //   }
-  //}
-
-  console.log(whichOne);
-
-  let answer = []
-  let testt = ""
+  let answer = [];
 
   for (const key in whichOne) {
-    console.log("whichOne[key]", whichOne[key]);
-    console.log({key}, answer[key]);
-    answer[key-1] = whichOne[key].pop()
+    answer[key - 1] = whichOne[key].pop();
+  }
+
+  console.log({ answer });
+};
+
+//findEndState();
+
+function moveMultiple(params) {
+  const lines = fs
+    .readFileSync("./rawData/day5.txt", { encoding: "utf-8" })
+    .replace(/\r/g, "") // remove all \r characters to avoid issues on Windows
+    .trim() // Remove starting/ending whitespace
+    .split("\n"); // Split on newline
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+    let broken = line.split(" ");
+    const move = broken[1];
+    const from = broken[3];
+    const to = broken[5];
+
+    for (let j = 0; j < move; j++) {
+      let grabbedValue = whichOne[from].at(0 - move + j);
+      whichOne[to].push(grabbedValue);
+      if (j == move - 1) {
+        whichOne[from].splice(0 - move, move);
+      }
+    }
+  }
+
+  let answerMulti = [];
+
+  for (const key in whichOne) {
+    answerMulti[key - 1] = whichOne[key].pop();
+  }
+
+  console.log({ answerMulti });
 }
 
-console.log({answer});
-
-
-};
-findEndState();
+moveMultiple();

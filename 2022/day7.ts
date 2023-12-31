@@ -21,7 +21,8 @@ function dFirstSeach(whichFile: string) {
     }
   }
 
-  // Create Function that
+  // Create Function that adds the data to an Object?Array?
+   
 }
 
 dFirstSeach("day7test");

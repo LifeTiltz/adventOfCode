@@ -22,7 +22,13 @@ function dFirstSeach(whichFile: string) {
   }
 
   // Create Function that adds the data to an Object?Array?
-   
 }
 
 dFirstSeach("day7test");
+
+//Learn how to copy an object and add to it while recreating it
+const obj = {
+  a: {
+    d: {},
+  },
+};

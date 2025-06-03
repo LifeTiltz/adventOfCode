@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-function dFirstSeach(whichFile: string) {
+function dFirstSeach(whichFile) {
   const lines = fs
     .readFileSync(`./rawData/${whichFile}.txt`, { encoding: "utf-8" })
     .replace(/\r/g, "") // remove all \r characters to avoid issues on Windows
@@ -15,20 +15,21 @@ function dFirstSeach(whichFile: string) {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-
-    if (line[0] != "$") {
-      console.log(line);
-    }
+    console.log(line);
   }
 
   // Create Function that adds the data to an Object?Array?
 }
-
+// day7test or day7
 dFirstSeach("day7test");
 
 //Learn how to copy an object and add to it while recreating it
-const obj = {
-  a: {
-    d: {},
-  },
-};
+const root = {};
+
+function objBuilder(object, currPath, parent, children, size) {
+  let temp = {};
+}
+
+objBuilder(root, ["/"], null, [a, d], 23352670);
+
+console.log(root);
